@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cytonn Foundation</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+<link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/png" href="img/logo.png"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+        //On Submit
+function validate() {
+    var x = document.forms["cytonn"]["names"].value;
+    if (x == "") {
+        alert("Please Enter Name!");
+        return false;
+    }
+}
+        function adds() {
+    var m = document.forms["cytonns"]["namba"].value;
+    var n = document.forms["cytonns"]["nambas"].value;
+    if (m == "") {
+        alert("Number Required in Field I");
+        return false;
+    }else if(n == ""){
+      alert("Number Required in Field II");
+        return false;
+    }
+            else{
+                var a = document.getElementById("namba").value;
+                var b = document.getElementById("nambas").value;
+                var k = parseInt(a);
+                var l = parseInt(b);
+                var c = k + l;
+               alert("The Sum of Above is "+ c); 
+            }
+}
+        
+        //Closures
+        function june() {
+          var names = 'This is a Closure Example';
+          function xxx() {
+            console.log(names);
+          }
+          return xxx;
+        }
+
+        var june = june();
+        june();
+        
+        //Objects
+        function jose(){
+           var x = document.forms["king"]["first"].value;
+            var y = document.forms["king"]["last"].value;
+            var z = document.forms["king"]["dat"].value;
+            if (x == "") {
+        alert("Enter Firstname");
+        return false;
+    }else if(y == ""){
+      alert("Enter Lastname"); 
+        return false;
+    }else if(z == ""){
+        alert("Date is Required"); 
+        return false;
+    }else{
+        
+    var details = {
+    firstName : x,
+    lastName  : y,
+    datx  : z
+}; 
+        alert("Your Firstname is "+details.firstName+" and your Lastname is "+details.lastName+" the date you selected is "+details.datx);
+        
+    }
+        }
+        
+        //Use Strict
+function fire() {
+"use strict";
+    y = 50; 
+    alert("The Value of is "+y);
+}
+        //On MouseClick
+        function hove(){
+            alert("You Have CLicked the Slider!")
+        }
+        function page(){
+            alert("Welcome to Homepage");
+        }
+        
+        //Custom Events
+     var Jose;
+    var tech = function () {
+        var x = document.forms["kings"]["cities"].value;
+           var y = document.getElementById("cities").value;
+        if(x == ""){
+            alert("Enter name of city!")
+        }else{
+        try {
+            Jose = new CustomEvent(
+               "city",
+                {
+                    detail: {
+                        description: "You are in "+y,
+                        timeofevent: new Date(),
+                        eventcode: 2
+                    },
+                    bubbles: true,
+                    cancelable: true
+                }
+            );
+            document.addEventListener("city", customEventHandler);
+            //Raise an Event
+            document.dispatchEvent(Jose);
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+    //Event Handler
+    function customEventHandler() {
+        alert(window.event.detail.description);
+    }}
+    
+    //Promises
+var mondays = false;
+var rains = new Promise(
+    function (resolve, reject) {
+        if (mondays) {
+            var times = {
+                Time: '3:00 pm',
+                Cloudy: 'Yes'
+            };
+            resolve(times);
+        } else {
+            var reason = new Error('Today is not Monday so it will not rain!');
+            reject(reason);
+        }
+
+    }
+);
+
+var mon = function () {
+    rains
+        .then(function (fulfilled) {
+            console.log(fulfilled);
+        })
+        .catch(function (error) {
+            console.log(error.message);
+        });
+}
+mon();
+    </script>
+</head>
+<body>
+<div class="row">
+<div class="large-3 columns">
+<h1><img src="img/logo.svg" /></h1>
+</div>
+<div class="large-9 columns">
+<ul class="right button-group">
+<li><a href="#" class="button"><i class="fi-home"></i>&nbsp;HOME</a></li>
+<li><a href="#" class="button"><i class="fi-book"></i>&nbsp;ABOUT US</a></li>
+<li><a href="#" class="button"><i class="fi-pencil"></i>&nbsp;SERVICES</a></li>
+<li><a href="#" class="button"><i class="fi-info"></i>&nbsp;CONTACT US</a></li>
+</ul>
+</div>
+</div>
+<div class="row" onclick="hove()">
+<div class="large-12 columns">
+<ul class="example-orbit" data-orbit>
+<li><img src="img/1.jpg"></li>
+<li><img src="img/2.jpg"></li>
+<li><img src="img/3.jpg"></li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="large-4 columns">
+    <h5 style="font-weight: bold;color:green;">FUNCTIONS | ONSUBMIT</h5>
+<p style="text-align: justify;">Below Function validate form field not to be empty, Click submit without putting any value!</p>
+   <form name="cytonn" action="#"
+onsubmit="return validate()" method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="Name" name="names">
+        </div>
+        <div class="small-2 columns">
+            <input type="submit" class="button postfix" value="Submit"> 
+        </div>
+      </div>
+    </div>
+  </div>
+</form> 
+</div>
+<div class="large-4 columns">
+     <h5 style="font-weight: bold;color:green;">FUNCTIONS</h5>
+<p style="text-align: justify;">JavaScript Function to compute sum of two numbers specified below. Enter th e two numbers to find sum!</p>
+      <form name="cytonns" action="#"
+method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+          <input type="number" placeholder="Number" id="namba" name="namba">
+        </div>
+          <div class="small-10 columns">
+          <input type="number" placeholder="Number II" id="nambas" name="nambas">
+        </div>
+        <div class="small-2 columns">
+            <button type="button" onclick="adds()" class="button postfix"><i class="fi-plus"></i>&nbsp;SUM</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form> 
+</div>
+<div class="large-4 columns">
+ <h5 style="font-weight: bold;color:green;">USE STRICT</h5>
+<p style="text-align: justify;">JavaScript Demonstration on use strict mode. Activate debug mode and click the button to view the error.</p>
+
+<button type="button" onclick="fire()" class="button postfix"><i class="fi-plus"></i>&nbsp;Use Strict</button>
+</div>
+</div>
+<div class="row">
+     <hr height="20"/>
+<div class="large-4 columns">
+    <h5 style="font-weight: bold;color:green;">OTHER EVENTS</h5>
+   <form name="cytonn" action="#"
+onsubmit="return validate()" method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+            <input type="button" onclick="page()" class="button postfix" value="ON CLICK">
+          
+        </div>
+           <div class="small-12 columns">
+            <input type="button" onmouseover="page()" class="button postfix" value="ON MOUSE OVER">
+          
+        </div>
+           <div class="small-12 columns">
+            <input type="button" onmouseout="page()" class="button postfix" value="ON MOUSE OUT">
+          
+        </div>
+          <div class="small-12 columns">
+            <input type="button" onmousemove="page()" class="button postfix" value="ON MOUSE MOVE">
+        </div>
+      </div>
+    </div>
+  </div>
+</form> 
+</div>
+<div class="large-4 columns">
+     <h5 style="font-weight: bold;color:green;">CUSTOM EVENTS</h5>
+<p style="text-align: justify;">A JavaScript Custom Event</p>
+      <form name="kings" action="#"
+onsubmit="return tech()" method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+          <input type="text" placeholder="City" id="cities" name="cities">
+        </div>
+        <div class="small-12 columns">
+            <button type="submit" onclick="tech()" class="button postfix"><i class="fi-eye"></i>&nbsp;SHOW CUSTOM EVENT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form> 
+</div>
+<div class="large-4 columns">
+ <h5 style="font-weight: bold;color:green;">PROMISES</h5>
+<p style="text-align: justify;">A demonstration of Javascript Promises. Turn on console and change the value of mondays to true, false to see results.</p>
+</div>
+</div>   
+<div class="row">
+     <hr/>
+<div class="large-4 columns">
+     <h5 style="font-weight: bold;color:green;">OBJECTS</h5>
+<p style="text-align: justify;">A JavaScript demo on the use of Objects. Takes inputs from the text box and uses objects to fire the outputs.</p>
+    
+    
+     <form name="king" action="#"
+method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+          <input type="text" placeholder="Firstname" id="first" name="first">
+        </div>
+          <div class="small-12 columns">
+          <input type="text" placeholder="Lastname" id="last" name="last">
+        </div>
+          <div class="small-12 columns">
+          <input type="date" placeholder="Date" id="dat" name="dat">
+        </div>
+        <div class="small-6 columns">
+            <button type="button" onclick="jose()" class="button postfix"><i class="fi-eye"></i>&nbsp;SEE RESULTS</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</form>     
+</div>
+<div class="large-4 columns">
+ <h5 style="font-weight: bold;color:green;">CLOSURES</h5>
+<p style="text-align: justify;">In this example, it uses closures to display the text. Turn on console and click the button to view.</p>
+<form name="lion" action="#"
+method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+            <button type="button" onclick="june()" class="button postfix"><i class="fi-calendar"></i>&nbsp;VIEW CLOSURE ON LOG</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</form>  
+</div>
+    
+<div class="large-4 columns">
+     <h5 style="font-weight: bold;color:green;">PROTOTYPES</h5>
+<p style="text-align: justify;">Example of prototype</p>
+    <p id="pro"></p>
+    <script>
+function City(area, distance, people) {
+    this.places = area;
+    this.lengths = distance;
+    this.population = people;
+
+}
+City.prototype.location = "Nairobi";
+
+var place = new City("30000", "200", 50, "Africans");
+document.getElementById("pro").innerHTML =
+"I live in " + place.location; 
+</script>
+
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+<footer class="row">
+<div class="large-12 columns">
+<hr />
+<div class="row">
+<div class="large-6 columns">
+<p>&copy; Copyright Cytonn 2017</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li><a href="#">Home</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+<script>
+      $(document).foundation();
+    </script>
+</body>
+</html>
